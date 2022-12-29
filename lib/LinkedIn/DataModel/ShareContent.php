@@ -4,45 +4,29 @@ namespace REverse\LinkedIn\DataModel;
 
 class ShareContent extends Model
 {
-    const MEDIA_CATEGORY_NONE = 'NONE';
-    const MEDIA_CATEGORY_ARTICLE = 'ARTICLE';
-    const MEDIA_CATEGORY_IMAGE = 'IMAGE';
-    const MEDIA_CATEGORY_RICH = 'RICH';
-    const MEDIA_CATEGORY_VIDEO = 'VIDEO';
-    const MEDIA_CATEGORY_CAROUSEL = 'CAROUSEL';
+    public const MEDIA_CATEGORY_NONE     = 'NONE';
+    public const MEDIA_CATEGORY_ARTICLE  = 'ARTICLE';
+    public const MEDIA_CATEGORY_IMAGE    = 'IMAGE';
+    public const MEDIA_CATEGORY_RICH     = 'RICH';
+    public const MEDIA_CATEGORY_VIDEO    = 'VIDEO';
+    public const MEDIA_CATEGORY_CAROUSEL = 'CAROUSEL';
 
-    /**
-     * @var string
-     */
-    private $description;
+    private string $description;
 
-    /**
-     * @var string
-     */
-    private $title;
+    private string $title;
 
     /**
      * @var array|ContentEntity[]
      */
-    private $contentEntities = [];
+    private array $contentEntities = [];
 
-    /**
-     * @var string
-     */
-    private $shareMediaCategory;
+    private string $shareMediaCategory;
 
-    /**
-     * @return string
-     */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
 
-    /**
-     * @param string $description
-     * @return ShareContent
-     */
     public function setDescription(string $description): ShareContent
     {
         $this->description = $description;
@@ -50,18 +34,11 @@ class ShareContent extends Model
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * @param string $title
-     * @return ShareContent
-     */
     public function setTitle(string $title): ShareContent
     {
         $this->title = $title;
@@ -79,7 +56,6 @@ class ShareContent extends Model
 
     /**
      * @param array|ContentEntity[] $contentEntities
-     * @return ShareContent
      */
     public function setContentEntities(array $contentEntities): ShareContent
     {
@@ -88,11 +64,6 @@ class ShareContent extends Model
         return $this;
     }
 
-    /**
-     * @param ContentEntity $contentEntity
-     *
-     * @return ShareContent
-     */
     public function addContentEntity(ContentEntity $contentEntity): ShareContent
     {
         $this->contentEntities[] = $contentEntity;
@@ -100,34 +71,22 @@ class ShareContent extends Model
         return $this;
     }
 
-    /**
-     * @param ContentEntity $contentEntity
-     *
-     * @return ShareContent
-     */
     public function removeContentEntity(ContentEntity $contentEntity): ShareContent
     {
         $key = array_search($contentEntity, $this->contentEntities);
 
-        if ($key !== false) {
+        if (false !== $key) {
             unset($contentEntity[$key]);
         }
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getShareMediaCategory()
+    public function getShareMediaCategory(): string
     {
         return $this->shareMediaCategory;
     }
 
-    /**
-     * @param string $shareMediaCategory
-     * @return ShareContent
-     */
     public function setShareMediaCategory(string $shareMediaCategory): ShareContent
     {
         $this->shareMediaCategory = $shareMediaCategory;

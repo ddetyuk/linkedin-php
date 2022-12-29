@@ -4,53 +4,25 @@ namespace REverse\LinkedIn\DataModel;
 
 class ShareResponse extends Model
 {
-    /**
-     * @var string
-     */
-    private $id;
+    private string $id;
 
-    /**
-     * @var string
-     */
-    private $activity;
+    private string $activity;
 
-    /**
-     * @var ShareContent
-     */
-    private $content;
+    private ShareContent $content;
 
-    /**
-     * @var bool
-     */
-    private $edited;
+    private bool $edited;
 
-    /**
-     * @var string
-     */
-    private $owner;
+    private string $owner;
 
-    /**
-     * @var string
-     */
-    private $subject;
+    private string $subject;
 
-    /**
-     * @var ShareText
-     */
-    private $text;
+    private ShareText $text;
 
-    /**
-     * @return string
-     */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
 
-    /**
-     * @param string $id
-     * @return ShareResponse
-     */
     public function setId(string $id): ShareResponse
     {
         $this->id = $id;
@@ -58,18 +30,11 @@ class ShareResponse extends Model
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getActivity()
+    public function getActivity(): string
     {
         return $this->activity;
     }
 
-    /**
-     * @param string $activity
-     * @return ShareResponse
-     */
     public function setActivity(string $activity): ShareResponse
     {
         $this->activity = $activity;
@@ -77,18 +42,11 @@ class ShareResponse extends Model
         return $this;
     }
 
-    /**
-     * @return ShareContent
-     */
-    public function getContent()
+    public function getContent(): ShareContent
     {
         return $this->content;
     }
 
-    /**
-     * @param ShareContent $content
-     * @return ShareResponse
-     */
     public function setContent(ShareContent $content): ShareResponse
     {
         $this->content = $content;
@@ -96,18 +54,11 @@ class ShareResponse extends Model
         return $this;
     }
 
-    /**
-     * @return bool
-     */
-    public function isEdited()
+    public function isEdited(): bool
     {
         return $this->edited;
     }
 
-    /**
-     * @param bool $edited
-     * @return ShareResponse
-     */
     public function setEdited(bool $edited): ShareResponse
     {
         $this->edited = $edited;
@@ -115,18 +66,11 @@ class ShareResponse extends Model
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getOwner()
+    public function getOwner(): string
     {
         return $this->owner;
     }
 
-    /**
-     * @param string $owner
-     * @return ShareResponse
-     */
     public function setOwner(string $owner): ShareResponse
     {
         $this->owner = $owner;
@@ -134,18 +78,11 @@ class ShareResponse extends Model
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getSubject()
+    public function getSubject(): string
     {
         return $this->subject;
     }
 
-    /**
-     * @param string $subject
-     * @return ShareResponse
-     */
     public function setSubject(string $subject): ShareResponse
     {
         $this->subject = $subject;
@@ -153,18 +90,11 @@ class ShareResponse extends Model
         return $this;
     }
 
-    /**
-     * @return ShareText
-     */
-    public function getText()
+    public function getText(): ShareText
     {
         return $this->text;
     }
 
-    /**
-     * @param ShareText $text
-     * @return ShareResponse
-     */
     public function setText(ShareText $text): ShareResponse
     {
         $this->text = $text;

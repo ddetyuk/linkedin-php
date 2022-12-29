@@ -4,7 +4,7 @@
 PHP client for LinkedIn API V2.
 
 ## Requirements
- - php >= 7.0
+ - php >= 8.1
 
 ## Installation
 

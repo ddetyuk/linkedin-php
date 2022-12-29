@@ -4,72 +4,42 @@ namespace REverse\LinkedIn\DataModel;
 
 class BasicProfile extends Model
 {
-    /**
-     * @var string
-     */
-    private $id;
+    private string $id;
 
-    /**
-     * @var string
-     */
-    private $localizedLastName;
+    private string $localizedLastName;
 
-    /**
-     * @var string
-     */
-    private $localizedFirstName;
+    private string $localizedFirstName;
 
-    /**
-     * @return string
-     */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
 
-    /**
-     * @param string $id
-     * @return BasicProfile
-     */
-    public function setId($id)
+    public function setId(string $id): BasicProfile
     {
         $this->id = $id;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getLocalizedLastName()
+    public function getLocalizedLastName(): string
     {
         return $this->localizedLastName;
     }
 
-    /**
-     * @param string $localizedLastName
-     * @return BasicProfile
-     */
-    public function setLocalizedLastName($localizedLastName)
+    public function setLocalizedLastName(string $localizedLastName): BasicProfile
     {
         $this->localizedLastName = $localizedLastName;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getLocalizedFirstName()
+    public function getLocalizedFirstName(): string
     {
         return $this->localizedFirstName;
     }
 
-    /**
-     * @param string $localizedFirstName
-     * @return BasicProfile
-     */
-    public function setLocalizedFirstName($localizedFirstName)
+    public function setLocalizedFirstName(string $localizedFirstName): BasicProfile
     {
         $this->localizedFirstName = $localizedFirstName;
 

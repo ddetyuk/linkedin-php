@@ -11,59 +11,36 @@ use REverse\LinkedIn\Transport\TransportInterface;
 
 class Client
 {
-    const PERMISSION_EMAIL_ADDRESS = 'r_emailaddress';
-    const PERMISSION_LITE_PROFILE = 'r_liteprofile';
-    const PERMISSION_W_MEMBER_SOCIAL = 'w_member_social';
+    public const PERMISSION_EMAIL_ADDRESS   = 'r_emailaddress';
+    public const PERMISSION_LITE_PROFILE    = 'r_liteprofile';
+    public const PERMISSION_W_MEMBER_SOCIAL = 'w_member_social';
 
-    const BASE_URI = 'https://api.linkedin.com/v2';
+    public const BASE_URI = 'https://api.linkedin.com/v2';
 
-    /**
-     * @var LinkedInProvider
-     */
-    private $linkedInProvider;
+    private LinkedInProvider $linkedInProvider;
 
-    /**
-     * @var TransportInterface
-     */
-    private $transport;
+    private TransportInterface $transport;
 
-    /**
-     * @var AccessTokenInterface|null
-     */
     private $token;
 
-    /**
-     * @var array
-     */
-    private $header = [];
+    private array $header = [];
 
     /**
      * Client constructor.
-     *
-     * @param string $clientId
-     * @param string $clientSecret
-     * @param string $redirectUri
      *
      * @throws Exception\RuntimeException
      */
     public function __construct(string $clientId, string $clientSecret, string $redirectUri)
     {
         $this->linkedInProvider = new LinkedInProvider([
-            'clientId'          => $clientId,
-            'clientSecret'      => $clientSecret,
-            'redirectUri'       => $redirectUri,
+            'clientId'     => $clientId,
+            'clientSecret' => $clientSecret,
+            'redirectUri'  => $redirectUri,
         ]);
-
-        $this->linkedInProvider->withResourceOwnerVersion(2);
 
         $this->transport = Factory::createTransport();
     }
 
-    /**
-     * @param array $options
-     *
-     * @return string
-     */
     public function getAuthenticationUrl(array $options = []): string
     {
         return $this->linkedInProvider->getAuthorizationUrl($options);
@@ -71,14 +48,10 @@ class Client
 
     public function isAuthenticated()
     {
-        return $this->token !== null && ! $this->token->hasExpired();
+        return null !== $this->token && !$this->token->hasExpired();
     }
 
     /**
-     * @param string $code
-     *
-     * @return string
-     *
      * @throws IdentityProviderException
      */
     public function initToken(string $code): AccessTokenInterface
@@ -93,7 +66,6 @@ class Client
     }
 
     /**
-     * @return string
      * @throws TokenNotInitializedException
      */
     public function getToken(): AccessTokenInterface
@@ -101,6 +73,7 @@ class Client
         if (null === $this->token) {
             throw new TokenNotInitializedException();
         }
+
         return $this->token;
     }
 
@@ -120,13 +93,13 @@ class Client
 
     public function doRequest($path, $body, $method): string
     {
-        return $this->transport->executeRequest(self::BASE_URI.$path, $body, $method, $this->header);
+        return $this->transport->executeRequest(self::BASE_URI . $path, $body, $method, $this->header);
     }
 
     private function initHeader()
     {
         $this->header = [
-            'Authorization: Bearer '.$this->token->getToken(),
+            'Authorization: Bearer ' . $this->token->getToken(),
             'Content-Type: application/json',
             'cache-control: no-cache',
             'X-Restli-Protocol-Version: 2.0.0',

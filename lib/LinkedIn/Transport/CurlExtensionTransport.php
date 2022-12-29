@@ -15,7 +15,7 @@ class CurlExtensionTransport implements TransportInterface
         curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 30);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_TIMEOUT, 60);
-        if ($method === TransportInterface::METHOD_POST) {
+        if (TransportInterface::METHOD_POST === $method) {
             curl_setopt($curl, CURLOPT_POST, 1);
             curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
         }

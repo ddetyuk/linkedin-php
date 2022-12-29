@@ -6,11 +6,14 @@ use League\OAuth2\Client\Provider\LinkedIn;
 use League\OAuth2\Client\Token\AccessTokenInterface;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use REverse\LinkedIn\Client;
 use REverse\LinkedIn\Exception\TokenNotInitializedException;
 
 class ClientTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testThatObjectInitLinkedInProvider()
     {
         $client = new Client('test', 'test', 'test.test');
@@ -30,17 +33,17 @@ class ClientTest extends TestCase
     public function testIfCallGetTokenAfterInitTokenIsCalledMethodDoesntThrowException()
     {
         $linkedInProvider = $this->prophesize(LinkedIn::class);
-        $token = $this->prophesize(AccessTokenInterface::class);
+        $token            = $this->prophesize(AccessTokenInterface::class);
         $token->getToken()->willReturn('tokenString');
         $linkedInProvider
             ->getAccessToken(Argument::exact('authorization_code'), Argument::exact(['code' => 'test']))
             ->willReturn($token->reveal());
-        ;
-        $reflection = new \ReflectionClass(Client::class);
+
+        $reflection         = new \ReflectionClass(Client::class);
         $reflectionProperty = $reflection->getProperty('linkedInProvider');
         $reflectionProperty->setAccessible(true);
         $client = $reflection->newInstanceWithoutConstructor();
-        /** @var \ReflectionProperty $reflectionProperty */
+        /* @var \ReflectionProperty $reflectionProperty */
 
         $reflectionProperty->setValue($client, $linkedInProvider->reveal());
         $client->initToken('test');

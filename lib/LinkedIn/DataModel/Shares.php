@@ -4,58 +4,27 @@ namespace REverse\LinkedIn\DataModel;
 
 class Shares extends Model
 {
-    /**
-     * @var string
-     */
-    private $owner;
+    private string $owner;
 
-    /**
-     * @var string
-     */
-    private $agent;
+    private string $agent;
 
-    /**
-     * @var string
-     */
-    private $subject;
+    private string $subject;
 
-    /**
-     * @var ShareText
-     */
-    private $text;
+    private ShareText $text;
 
-    /**
-     * @var ShareContent[]
-     */
-    private $content;
+    private ShareContent $content;
 
-    /**
-     * @var ShareDistributionTarget
-     */
-    private $distribution;
+    private ShareDistributionTarget $distribution;
 
-    /**
-     * @var string
-     */
-    private $resharedShare;
+    private string $resharedShare;
 
-    /**
-     * @var string
-     */
-    private $originalShare;
+    private string $originalShare;
 
-    /**
-     * @return string
-     */
-    public function getOwner()
+    public function getOwner(): string
     {
         return $this->owner;
     }
 
-    /**
-     * @param string $owner
-     * @return Shares
-     */
     public function setOwner(string $owner): Shares
     {
         $this->owner = $owner;
@@ -63,18 +32,11 @@ class Shares extends Model
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getAgent()
+    public function getAgent(): string
     {
         return $this->agent;
     }
 
-    /**
-     * @param string $agent
-     * @return Shares
-     */
     public function setAgent(string $agent): Shares
     {
         $this->agent = $agent;
@@ -82,18 +44,11 @@ class Shares extends Model
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getSubject()
+    public function getSubject(): string
     {
         return $this->subject;
     }
 
-    /**
-     * @param string $subject
-     * @return Shares
-     */
     public function setSubject(string $subject): Shares
     {
         $this->subject = $subject;
@@ -101,18 +56,11 @@ class Shares extends Model
         return $this;
     }
 
-    /**
-     * @return ShareText
-     */
-    public function getText()
+    public function getText(): ShareText
     {
         return $this->text;
     }
 
-    /**
-     * @param ShareText $text
-     * @return Shares
-     */
     public function setText(ShareText $text): Shares
     {
         $this->text = $text;
@@ -120,18 +68,11 @@ class Shares extends Model
         return $this;
     }
 
-    /**
-     * @return ShareContent
-     */
-    public function getContent()
+    public function getContent(): ShareContent
     {
         return $this->content;
     }
 
-    /**
-     * @param ShareContent $content
-     * @return Shares
-     */
     public function setContent(ShareContent $content): Shares
     {
         $this->content = $content;
@@ -139,18 +80,11 @@ class Shares extends Model
         return $this;
     }
 
-    /**
-     * @return ShareDistributionTarget
-     */
-    public function getDistribution()
+    public function getDistribution(): ShareDistributionTarget
     {
         return $this->distribution;
     }
 
-    /**
-     * @param ShareDistributionTarget $distribution
-     * @return Shares
-     */
     public function setDistribution(ShareDistributionTarget $distribution): Shares
     {
         $this->distribution = $distribution;
@@ -158,18 +92,11 @@ class Shares extends Model
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getResharedShare()
+    public function getResharedShare(): string
     {
         return $this->resharedShare;
     }
 
-    /**
-     * @param string $resharedShare
-     * @return Shares
-     */
     public function setResharedShare(string $resharedShare): Shares
     {
         $this->resharedShare = $resharedShare;
@@ -177,18 +104,11 @@ class Shares extends Model
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getOriginalShare()
+    public function getOriginalShare(): string
     {
         return $this->originalShare;
     }
 
-    /**
-     * @param string $originalShare
-     * @return Shares
-     */
     public function setOriginalShare(string $originalShare): Shares
     {
         $this->originalShare = $originalShare;

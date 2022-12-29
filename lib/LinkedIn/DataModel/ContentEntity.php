@@ -4,38 +4,22 @@ namespace REverse\LinkedIn\DataModel;
 
 class ContentEntity extends Model
 {
-    /**
-     * @var string
-     */
-    private $entity;
+    private string $entity;
 
-    /**
-     * @var string
-     */
-    private $entityLocation;
+    private string $entityLocation;
 
-    /**
-     * @var string
-     */
-    private $resolvedUrl;
+    private string $resolvedUrl;
 
     /**
      * @var array|Thumbnail[]
      */
-    private $thumbnails = [];
+    private array $thumbnails = [];
 
-    /**
-     * @return string
-     */
-    public function getEntity()
+    public function getEntity(): string
     {
         return $this->entity;
     }
 
-    /**
-     * @param string $entity
-     * @return ContentEntity
-     */
     public function setEntity(string $entity): ContentEntity
     {
         $this->entity = $entity;
@@ -43,18 +27,11 @@ class ContentEntity extends Model
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getEntityLocation()
+    public function getEntityLocation(): string
     {
         return $this->entityLocation;
     }
 
-    /**
-     * @param string $entityLocation
-     * @return ContentEntity
-     */
     public function setEntityLocation(string $entityLocation): ContentEntity
     {
         $this->entityLocation = $entityLocation;
@@ -62,18 +39,11 @@ class ContentEntity extends Model
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getResolvedUrl()
+    public function getResolvedUrl(): string
     {
         return $this->resolvedUrl;
     }
 
-    /**
-     * @param string $resolvedUrl
-     * @return ContentEntity
-     */
     public function setResolvedUrl(string $resolvedUrl): ContentEntity
     {
         $this->resolvedUrl = $resolvedUrl;
@@ -91,7 +61,6 @@ class ContentEntity extends Model
 
     /**
      * @param array|Thumbnail[] $thumbnails
-     * @return ContentEntity
      */
     public function setThumbnails(array $thumbnails): ContentEntity
     {
@@ -111,7 +80,7 @@ class ContentEntity extends Model
     {
         $key = array_search($thumbnail, $this->thumbnails);
 
-        if ($key !== false) {
+        if (false !== $key) {
             unset($this->thumbnails[$key]);
         }
 

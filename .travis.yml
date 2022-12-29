@@ -5,10 +5,7 @@ cache:
     - $HOME/.composer/cache
 
 php:
-  - 7.0
-  - 7.1
-  - 7.2
-  - 7.3
+  - 8.1
 
 matrix:
   fast_finish: true
@@ -17,4 +14,4 @@ before_install: composer self-update
 
 install: composer update --prefer-dist --no-progress
 
-script: if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then vendor/bin/phpunit --coverage-clover=coverage.clover; else vendor/bin/phpunit; fi
+script: if [ "$TRAVIS_PHP_VERSION" == "8.1" ]; then vendor/bin/phpunit --coverage-clover=coverage.clover; else vendor/bin/phpunit; fi

@@ -7,11 +7,15 @@ use REverse\LinkedIn\Transport\TransportInterface;
 
 class Me extends EndpointBase
 {
-    const ENDPOINT_PATH = '/me';
+    public const ENDPOINT_PATH = '/me';
 
-    public function get()
+    public function get(): BasicProfile
     {
-        $result =  $this->getClient()->doRequest(self::ENDPOINT_PATH, '', TransportInterface::METHOD_GET);
+        $result =  $this->getClient()->doRequest(
+            self::ENDPOINT_PATH,
+            '',
+            TransportInterface::METHOD_GET
+        );
 
         $basicProfile = new BasicProfile();
         $basicProfile->initObjectByJson($result);

@@ -4,38 +4,22 @@ namespace REverse\LinkedIn\DataModel;
 
 class Thumbnail
 {
-    /**
-     * @var array
-     */
-    private $authors = [];
+    private array $authors = [];
 
     /**
      * @var object|array
      */
     private $imageSpecificContent;
 
-    /**
-     * @var array
-     */
-    private $publishers = [];
+    private array $publishers = [];
 
-    /**
-     * @var string
-     */
-    private $resolvedUrl;
+    private string $resolvedUrl;
 
-    /**
-     * @return array
-     */
     public function getAuthors(): array
     {
         return $this->authors;
     }
 
-    /**
-     * @param array $authors
-     * @return Thumbnail
-     */
     public function setAuthors(array $authors): Thumbnail
     {
         $this->authors = $authors;
@@ -53,7 +37,6 @@ class Thumbnail
 
     /**
      * @param object|array $imageSpecificContent
-     * @return Thumbnail
      */
     public function setImageSpecificContent($imageSpecificContent): Thumbnail
     {
@@ -62,18 +45,11 @@ class Thumbnail
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getPublishers(): array
     {
         return $this->publishers;
     }
 
-    /**
-     * @param array $publishers
-     * @return Thumbnail
-     */
     public function setPublishers(array $publishers): Thumbnail
     {
         $this->publishers = $publishers;
@@ -81,18 +57,11 @@ class Thumbnail
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getResolvedUrl()
+    public function getResolvedUrl(): string
     {
         return $this->resolvedUrl;
     }
 
-    /**
-     * @param string $resolvedUrl
-     * @return Thumbnail
-     */
     public function setResolvedUrl(string $resolvedUrl): Thumbnail
     {
         $this->resolvedUrl = $resolvedUrl;
